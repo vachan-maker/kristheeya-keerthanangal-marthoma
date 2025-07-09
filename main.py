@@ -1,4 +1,5 @@
 from fastapi import FastAPI,Response,HTTPException
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 import json
 app = FastAPI()
