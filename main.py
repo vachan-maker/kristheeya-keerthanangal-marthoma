@@ -3,6 +3,12 @@ from fastapi.staticfiles import StaticFiles
 import json
 app = FastAPI()
 
+
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/docs")
+
 @app.get("/{songNo}")
 async def getSong(songNo:int):
     try:
