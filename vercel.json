@@ -25,7 +25,8 @@
     "Dockerfile",
     "README.md",
     "pytest.ini",
-    "package.json"
+    "package.json",
+    "script.py"
   ]
 }
 
