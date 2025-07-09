@@ -13,3 +13,6 @@ There are issues with the data and I am working on cleaning it up. Some of the i
 - Mistakes in words
 - Random characters
 
+# Script
+
+The script used for extracting the data from the website is available in `script.py`.
