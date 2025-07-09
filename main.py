@@ -1,9 +1,16 @@
-from fastapi import FastAPI,Response
+from fastapi import FastAPI,Response,HTTPException
 from fastapi.staticfiles import StaticFiles
+import json
 app = FastAPI()
 
 @app.get("/{songNo}")
 async def getSong(songNo:int):
-    with open(f'kristheeya_keerthanagal/{songNo}.txt','r',encoding='utf-8') as file:
-        text = file.read()
-    return Response(content=text,media_type="text/plain; charset=utf-8")
+    try:
+        with open(f'kristheeya_keerthanagal/{songNo}.txt','r',encoding='utf-8') as file:
+            text = file.read()
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Song not found")
+    except Exception as e:
+        raise HTTPException(status_code=500,detail="Internal Server Error")
+
+    return {"songNo":songNo,"lyrics":text}
